@@ -1,0 +1,80 @@
+@startuml character2
+
+interface Linable{
+__ public __
+
+    setPosition()
+    getPosition()
+    getValue()
+}
+
+interface Sorter{
+__ public __
+    load()
+    sort()
+    getPlan()
+}
+
+class BSorter{
+__ private __
+    int[] a
+    String plan
+
+    swap()
+}
+
+class QSorter{
+__ private __
+    int[] a
+    String plan
+
+    swap()
+    quick()
+}
+
+class Line {
+    class position
+__ private __
+    Position[] positions
+__ public __
+    put()
+    get()
+    toArray()
+    selectElement()
+}
+
+class SnakeSpirit{
+__ private __
+    {static}SnakeSpirit theSnakeSpirit
+    Sorter sorter
+
+    SnakeSpirit()
+    parsePlan()
+    execute()
+__ public __
+    {static}getTheSnakeSpirit()
+    setSorter()
+    lineUp()
+}
+
+class Goblin{
+__ private __
+    int r
+    int g
+    int b
+    int number
+    Pos position
+    String n
+__ public __
+    {static}getGourdByRank()
+    rank()
+    swapPosition()
+}
+
+Sorter <|-- BSorter
+Sorter <|-- QSorter
+Linable <|-- Goblin
+Line o-- Linable
+SnakeSpirit o-- Sorter
+SnakeSpirit *-- Line
+@enduml
