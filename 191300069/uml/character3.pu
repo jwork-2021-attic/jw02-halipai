@@ -1,0 +1,80 @@
+@startuml character3
+
+interface Linable{
+__ public __
+
+    setPos()
+    getPos()
+    getValue()
+}
+
+interface Sorter{
+__ public __
+    load()
+    sort()
+    getPlan()
+}
+
+class BSorter{
+__ private __
+    int[] a
+    String plan
+
+    swap()
+}
+
+class QSorter{
+__ private __
+    int[] a
+    String plan
+
+    swap()
+    quick()
+}
+
+class Matrix {
+    class pos
+__ private __
+    Pos[] pos
+__ public __
+    put()
+    get()
+    toArray()
+    selectElement()
+}
+
+class SnakeSpirit{
+__ private __
+    {static}SnakeSpirit theSnakeSpirit
+    Sorter sorter
+
+    SnakeSpirit()
+    parsePlan()
+    execute()
+__ public __
+    {static}getTheSnakeSpirit()
+    setSorter()
+    matrixUp()
+}
+
+class Goblin{
+__ private __
+    int r
+    int g
+    int b
+    int number
+    Pos pos
+    String n
+__ public __
+    {static}getGourdByRank()
+    rank()
+    swapPos()
+}
+
+Sorter <|-- BSorter
+Sorter <|-- QSorter
+Linable <|-- Goblin
+Matrix o-- Linable
+SnakeSpirit o-- Sorter
+SnakeSpirit *-- Matrix
+@enduml
