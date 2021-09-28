@@ -28,7 +28,7 @@ public class Scene{
         Sorter sorter;
         sorter = new QSorter();
         //sorter = new BSorter();
-
+        //sorter = new SSorter();
         theSnakeSpirit.setSorter(sorter);
 
         String log;
